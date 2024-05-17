@@ -14,7 +14,7 @@
       },
       "company": "GEEKNET",
       "email": "henderson.briggs@geeknet.net",
-      "password": "23derd*334",
+      "password": "$2a$10$ROC7vHA4HxiTJHckKDYjzerbTwotOadpJLWsxo7aVXBZjQfPhQjEy",
       "phone": "+1 (936) 451-3590",
       "address": "121 National Drive, Cotopaxi, Michigan, 8240"
     },
@@ -32,7 +32,7 @@
       },
       "company": "ENDIPINE",
       "email": "boyd.small@endipine.biz",
-      "password": "_4rhododfj",
+      "password": "$2a$10$ROC7vHA4HxiTJHckKDYjzerbTwotOadpJLWsxo7aVXBZjQfPhQjEy",
       "phone": "+1 (814) 437-3837",
       "address": "261 Willow Street, Whipholt, Louisiana, 2879"
     },

@@ -2,9 +2,12 @@
 import express from 'express'; 
 import bcrypt from 'bcryptjs'; 
 import jwt from 'jsonwebtoken'; 
+import dotnev from 'dotenv';
+
+dotnev.config();
 
 // secret key for JWT...
-const SECRET_KEY = 'smart-pump-key'; // TODO: cambiar esto y hacerla una variable de entorno...
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // exporting the router as a function that takes the database instance as a parameter
 const authRoutes = (db) => {

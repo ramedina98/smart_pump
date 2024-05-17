@@ -1,9 +1,12 @@
 // importing necessary modules...
 import express from 'express'; 
 import jwt from 'jsonwebtoken'; 
+import dotnev from 'dotenv';
+
+dotnev.config();
 
 // secret key for jwt...
-const SECRET_KEY = 'smart-pump-key' // TODO: convertir en variable de entorno...
+const SECRET_KEY = process.env.SECRET_KEY; // TODO: convertir en variable de entorno...
 
 // exporting the router as a function that takes the db instance as a parameter...
 const userRoutes = (db) => {
@@ -12,7 +15,7 @@ const userRoutes = (db) => {
     // middleware function to authenticate user requests...
     const authenticate = (req, res, next) => {
         // extracting the token from the request header...
-        const token = req.header('Authorization'); 
+        const token = req.cookies.token; 
         if(!token) return res.status(401).json({ message: 'No token, authorization denied' }); 
 
         try{
@@ -30,8 +33,8 @@ const userRoutes = (db) => {
     router.get('/me', authenticate, async (req, res) => {
         await db.read(); 
         // finding the user based on user ID extracted from token...
-        const user = db.data.users.find(u => u.id === req.user.userId); 
-        res.json(user); // sending user details in response...
+        const user = db.data.users.find(u => u.id === req.user.userId);
+        res.render('pages/index', {user: user}); 
     }); 
 
     // route to update users details...

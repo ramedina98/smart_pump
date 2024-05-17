@@ -1,24 +1,30 @@
 // importing necessary module for the server...
 import express from 'express'; 
 import bodyParser from 'body-parser'; 
-import cors from 'cors'; 
-import path from 'path'; 
-import { fileURLToPath } from 'url';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import dotevn from 'dotenv'; 
+import logoutRoute from './routes/logout.js';
+
+// Load environment variables from .env file
+dotevn.config();
+
 // importing the database setup and initialization...
 import { db, initDB } from './db/db.js';
 
-// to obtain the __dirname path in an ES6 module...
-const __filename = fileURLToPath(import.meta.url); 
-const __dirname = path.dirname(__filename); 
-
 // creating an instance of express...
 const app = express(); 
-const PORT = 3000; // define the port number...
+const PORT = process.env.PORT; // define the port number...
 
 // middleware setup...
 app.use(cors()); // enable cross-origin resource sharing...
 app.use(bodyParser.json()); // parse incoming JSON requests...
-app.use(express.static(path.join(__dirname, '..', 'client'))); // server static files from the 'client' directory...
+app.use(cookieParser());
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+// we tell express that the static files are in the public folder
+app.use(express.static('public'));
 
 // importing routes with db instance...
 import authRoutesFactory from './routes/auth.js'; 
@@ -29,12 +35,17 @@ const authRoutes = authRoutesFactory(db);
 const userRoutes = userRoutesFactory(db); 
 
 // setting up routes...
+// login
 app.use('/auth', authRoutes); 
+// routes...
 app.use('/user', userRoutes); 
-// TODO: borrar...
-app.use('/hola', (_req, res) => {
-    res.send('<div style="color: red;">hola</div>');
-});
+// logout
+app.use('/auth', logoutRoute);
+
+//default routes if not yet logged in
+app.get('/login', (req, res) => {
+    res.render('pages/login');
+})
 
 // initialize the db and then start the server...
 initDB().then(() => {
@@ -46,3 +57,28 @@ initDB().then(() => {
     // handle any error that occur during db initialization...
     console.log('Filed to initialize database', error); 
 });
+
+// Middleware for automatic redirection
+app.use((req, res, next) => {
+    const token = req.cookies.token;
+    if (!token) { // If there is no token and the route is not '/login'
+        return res.redirect('/login'); // Redirect to '/login'
+    } else if (token) { // If there is a token and the route is '/login'
+        return res.redirect('/user/me'); // Redirect to '/user'
+    }
+    next();
+});
+
+// TODO: borrar cuando sea necesario...
+/*import bcrypt from 'bcryptjs';
+
+const password = 'may2024'; // Contraseña que quieres cifrar
+
+// Generar el hash de la contraseña
+bcrypt.hash(password, 10, (err, hash) => {
+    if (err) {
+        console.error('Error al generar el hash:', err);
+    } else {
+        console.log('Contraseña cifrada:', hash);
+    }
+}); */

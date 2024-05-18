@@ -14,14 +14,32 @@
     <!--icon-->
     <link rel="icon" href="/assets/icon/icon.ico">
     <!--css-->
-    <link rel="stylesheet" href="" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
     <!--JS-->
     <script src="/js/app.js" defer></script>
     <!--Fonts of google and icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <button onclick="logout()">Cerrar sesión</button>
+    <%- include('../partials/header'); %>
+    <main>
+        <section id="banner">
+            <!--This will be the welcome message-->
+            <div id="welcomeM">
+                <h2>Welcome to Smart Pump,</h2>
+                <h4>where your needs drive our innovation.</h4>
+            </div>
+            <!--here is the photo of the client-->
+            <figure>
+                <img src="<%= user.picture%>" alt="">
+            </figure>
+            <div id="BannerBtnsCont">
+                <button>Balance</button>
+                <button>Edit</button>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer'); %>
 </body>
 </html>
 

@@ -30,7 +30,7 @@ const userRoutes = (db) => {
     }; 
 
     // route to get user details...
-    router.get('/me', authenticate, async (req, res) => {
+    router.get('/', authenticate, async (req, res) => {
         await db.read(); 
         // finding the user based on user ID extracted from token...
         const user = db.data.users.find(u => u.id === req.user.userId);

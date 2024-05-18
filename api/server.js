@@ -43,7 +43,7 @@ app.use('/user', userRoutes);
 app.use('/auth', logoutRoute);
 
 //default routes if not yet logged in
-app.get('/login', (req, res) => {
+app.get('/login', (_req, res) => {
     res.render('pages/login');
 })
 
@@ -64,7 +64,7 @@ app.use((req, res, next) => {
     if (!token) { // If there is no token and the route is not '/login'
         return res.redirect('/login'); // Redirect to '/login'
     } else if (token) { // If there is a token and the route is '/login'
-        return res.redirect('/user/me'); // Redirect to '/user'
+        return res.redirect('/user/'); // Redirect to '/user'
     }
     next();
 });

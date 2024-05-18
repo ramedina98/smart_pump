@@ -1,0 +1,171 @@
+/*basic settings*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+:root{
+    --font: rgb(24, 24, 24);
+    --blue: #4690ff;
+    --blue_hover: #2c63b4;
+    --back_white: rgb(255, 255, 255);
+    --shadow: #11111146;
+    --back_inputs: #ebebebe9;
+    --rounded: 260px; 
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Roboto', sans-serif;
+}
+
+html, body{
+    width: 100%;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+/*header settings*/
+header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5em;
+    box-shadow: 0px 1px 4px rgba(35, 35, 35, 0.152);
+    & #splogo_cont{
+        width: 100px;
+        height: 67px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & img{
+            width: 60%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+    & #menuBurger{
+        width: 100px;
+        height: 67px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3em;
+        & i{
+            color: var(--font);
+            cursor: pointer;
+        }
+        & i:hover{
+            color: var(--blue_hover);
+        }
+    }
+}
+
+/*baner settings*/
+main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & #banner{
+        position: relative;
+        width: 100%;
+        height: 350px;
+        background-color: var(--back_inputs);
+        background-image: url('../assets/humans/upgrade.svg');
+        background-position: center;
+        background-size: contain;
+        background-clip: content-box;
+        background-repeat: no-repeat;
+        @media screen and (max-width: 868px){
+            background-image: url('../assets/backLogin.svg');
+            background-size: cover;
+        }
+        & #welcomeM{
+            position: absolute;
+            bottom: 80px;
+            left: 45px;
+            width: clamp(320px, 80%, 480px);
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(10px, 6vw, 1.7em);
+            @media screen and (max-width: 868px){
+                display: none;
+            }
+            & h2{
+                margin-bottom: 0.4em;
+                background: #CFCCC4;
+                background: linear-gradient(to right, #CFCCC4 0%, #1086CF 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            & h4{
+                background: #4690FF;
+                background: linear-gradient(to right, #1086CF 0%, #CCCFB8 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        & figure{
+            width: var(--rounded);
+            height: var(--rounded);
+            border-radius: var(--rounded);
+            position: absolute;
+            bottom: -30px; 
+            right: 80px;
+            box-shadow: 1px 1px 6px rgba(20, 20, 20, 0.197);
+            & img{
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+            }
+        }
+        & #BannerBtnsCont{
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media screen and (max-width: 868px){
+                display: none;
+            }
+            & button{
+                width: 130px;
+                padding: 0.6em;
+                border: none;
+                border-radius: 0.4em;
+                background-color: var(--blue);
+                color: var(--back_inputs);
+                font-size: 1em;
+                font-weight: 700;
+                letter-spacing: 0.03em;
+                cursor: pointer;
+            }
+            & button:hover{
+                background-color: var(--blue_hover);
+            }
+        }
+    }
+}
+
+/*footer settings*/
+footer{
+    border: 1px solid red;
+    width: 100%;
+    min-height: 600px;
+    background-image: url('../assets/layered.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+}

@@ -26,7 +26,7 @@ const authRoutes = (db) => {
         // if user does not exist, return an error response...
         if(!user){
             return res.status(400).json({
-                message: 'Invalid credentials',
+                message: 'Account does not exist',
             });
         }
 
@@ -36,7 +36,7 @@ const authRoutes = (db) => {
         // if password do not match, return an error response...
         if(!isMatch){
             return res.status(400).json({
-                message: 'Invalid credentials',
+                message: 'Incorrect password',
             });
         }
 

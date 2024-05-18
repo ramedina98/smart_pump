@@ -58,12 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const data = await res.json();
         if (res.ok) {
-            prompt('hola: ', data.token);
             localStorage.setItem('token', data.token);
             document.cookie = `token=${data.token}; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/`;
             window.location.href = '/'; // Redirect to home page after successful login
         } else {
-            alert(data.message); // Show error message if login fails
+            // we take the element alert...
+            const alertElement = document.getElementById('alert');
+            // we take the original text...
+            const originalText = alertElement.innerText; 
+            // we send the error message...
+            alertElement.innerText = data.message; 
+            setTimeout(() => {
+                // we reassing the original text...
+                alertElement.innerText = originalText; 
+            }, 2000);
         }
     });
 });

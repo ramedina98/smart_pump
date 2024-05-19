@@ -52,8 +52,11 @@ const userRoutes = (db) => {
     router.get('/balance', authenticate, async (req, res) => {
         await db.read();
         // finding the user based on user ID extracted from token...
-        const user = db.data.users.find(u = u.id === req.user.userId); 
-        res.json({ balance: user.balance }); // sending user balance in response...
+        const user = db.data.users.find(u => u.id === req.user.userId); 
+        res.render('pages/balance', { 
+            user: user, 
+            balance: user.balance 
+        }); // sending user balance in response...
     });
 
     return router; 

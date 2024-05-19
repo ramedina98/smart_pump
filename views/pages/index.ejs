@@ -23,19 +23,109 @@
 <body>
     <%- include('../partials/header'); %>
     <main>
-        <section id="banner">
-            <!--This will be the welcome message-->
-            <div id="welcomeM">
-                <h2>Welcome to Smart Pump,</h2>
-                <h4>where your needs drive our innovation.</h4>
+        <!--this is the banner section-->
+        <%- include('../partials/banner'); %>
+        <!--main main part-->
+        <section id="main">
+            <div id="Highlights">
+                <figure>
+                    <img src="https://www.bbva.mx/content/dam/public-web/global/images/micro-illustrations/donation.im1712051299836im.png?imwidth=320" alt="hard">
+                </figure>
+                <div id="HighlightsTxt">
+                    <h3>Our priority is to support us in this emergency</h3>
+                    <p>
+                        If you are one of our clients in the state of Guerrero and 
+                        you were affected by hurricane Otis, we have a support plan 
+                        for you.
+                    </p>
+                </div>
+                <div class="btn_cont">
+                    <button>More</button>
+                </div>
             </div>
-            <!--here is the photo of the client-->
-            <figure>
-                <img src="<%= user.picture%>" alt="">
-            </figure>
-            <div id="BannerBtnsCont">
-                <button>Balance</button>
-                <button>Edit</button>
+            <div id="navProducts">
+                <ul>
+                    <li>
+                        <i class='bx bxs-credit-card-alt'></i>
+                        I am looking for a card
+                    </li>
+                    <li>
+                        <i class='bx bxs-timer' ></i>
+                        I need a credit
+                    </li>
+                    <li>
+                        <i class='bx bx-money'></i>
+                        I want an account
+                    </li>
+                    <li>
+                        <i class='bx bxs-shield-plus'></i>
+                        Insurance
+                    </li>
+                    <li>
+                        <i class='bx bxs-bank'></i>
+                        Tax payment
+                    </li>
+                    <li>
+                        <i class='bx bxs-dollar-circle'></i>
+                        Excharge rate
+                    </li>
+                </ul>
+            </div>
+            <div id="newProducts">
+                <div class="newProductCart">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="cyber security">
+                    </figure>
+                    <div class="newProductCart_txt">
+                        <h3>Do not be fooled by fake sites</h3>
+                        <p>
+                            One of the most common tactics used by cybercriminals to 
+                            trick you and commit fraud is to create fake websites. 
+                            Don't trust them and protect yourself from them!
+                        </p>
+                    </div>
+                    <div class="newProductCart_btn">
+                        <button>
+                            <i class='bx bxs-bullseye' ></i>
+                            Learn more
+                        </button>
+                    </div>
+                </div>
+                <div class="newProductCart">
+                    <figure>
+                        <img src="https://plus.unsplash.com/premium_photo-1675808577247-2281dc17147a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Health Insurance">
+                    </figure>
+                    <div class="newProductCart_txt">
+                        <h3>New Health Insurance</h3>
+                        <p>
+                            We take care of you with medical consultations, laboratory studies, 
+                            medical emergencies, and provide two ambulances per year.
+                        </p>
+                    </div>
+                    <div class="newProductCart_btn">
+                        <button>
+                            <i class='bx bxs-bullseye' ></i>
+                            Learn more
+                        </button>
+                    </div>
+                </div>
+                <div class="newProductCart">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Concerts">
+                    </figure>
+                    <div class="newProductCart_txt">
+                        <h3>Smart Pump brings you and your family special events.</h3>
+                        <p>
+                            Enjoy your favorite events with the exclusive promotions of your Smart Pump credit card.
+                        </p>
+                    </div>
+                    <div class="newProductCart_btn">
+                        <button>
+                            <i class='bx bxs-bullseye' ></i>
+                            Learn more
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

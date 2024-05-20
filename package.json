@@ -4,7 +4,7 @@
   "description": "The savvy cats over at SMART Pump would like to be able to allow users to login to their account, check their balance and update their personal details. Write a simple web application (API and UI) using node.js and lowdb that lets users accomplish those tasks.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "dev": "nodemon ./api/server.js --ignore ./data/users.json"
   },
   "type": "module",
@@ -24,6 +24,11 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "chai": "^5.1.1",
+    "chromedriver": "^125.0.0",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.1.0",
+    "selenium-webdriver": "^4.21.0",
+    "supertest": "^7.0.0"
   }
 }

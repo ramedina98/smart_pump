@@ -5,26 +5,25 @@
       "guid": "eab0324c-75ef-49a1-9c49-be2d68f50b96",
       "isActive": true,
       "balance": "$3,585.69",
-      "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBvcnRyYWl0fGVufDB8fDB8fHww",
-      "age": "30",
+      "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "age": 30,
       "eyeColor": "blue",
       "name": {
         "first": "Henderson",
-        "last": "Smith"
+        "last": "Briggs"
       },
-      "company": "Net",
+      "company": "GEEKNET",
       "email": "henderson.briggs@geeknet.net",
-      "password": "$2a$10$ROC7vHA4HxiTJHckKDYjzerbTwotOadpJLWsxo7aVXBZjQfPhQjEy",
+      "password": "$2a$10$z07VvuXBvvrNlaNRWTMvqOQDYt4MdACEJFff43fSC4RSCaLFcjaYq",
       "phone": "+1 (936) 451-3590",
-      "address": "121 National Drive, Cotopaxi, Michigan, 8240",
-      "eyesColor": "green"
+      "address": "121 National Drive, Cotopaxi, Michigan, 8240"
     },
     {
       "_id": "5410953eee9a5b30c3eea476",
       "guid": "b26ea5d1-d8db-4106-91a2-57f42a5c7e9e",
       "isActive": false,
       "balance": "$3,230.56",
-      "picture": "http://placehold.it/32x32",
+      "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "age": 30,
       "eyeColor": "brown",
       "name": {
@@ -33,7 +32,7 @@
       },
       "company": "ENDIPINE",
       "email": "boyd.small@endipine.biz",
-      "password": "$2a$10$ROC7vHA4HxiTJHckKDYjzerbTwotOadpJLWsxo7aVXBZjQfPhQjEy",
+      "password": "$2a$10$z07VvuXBvvrNlaNRWTMvqOQDYt4MdACEJFff43fSC4RSCaLFcjaYq",
       "phone": "+1 (814) 437-3837",
       "address": "261 Willow Street, Whipholt, Louisiana, 2879"
     },
@@ -42,7 +41,7 @@
       "guid": "d5464d51-b4bf-4a4b-a5f7-fc2c8933ab45",
       "isActive": true,
       "balance": "$1,668.20",
-      "picture": "http://placehold.it/32x32",
+      "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "age": 33,
       "eyeColor": "green",
       "name": {
@@ -51,7 +50,7 @@
       },
       "company": "POSHOME",
       "email": "lott.kramer@poshome.us",
-      "password": "34oii+345",
+      "password": "$2a$10$z07VvuXBvvrNlaNRWTMvqOQDYt4MdACEJFff43fSC4RSCaLFcjaYq",
       "phone": "+1 (983) 565-2711",
       "address": "743 Ryder Avenue, Marenisco, South Dakota, 4752"
     },
@@ -60,7 +59,7 @@
       "guid": "5a98f752-22fe-499c-8288-ad0218c89552",
       "isActive": true,
       "balance": "$1,656.46",
-      "picture": "http://placehold.it/32x32",
+      "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "age": 35,
       "eyeColor": "brown",
       "name": {
@@ -69,7 +68,7 @@
       },
       "company": "ZILLAR",
       "email": "gibson.duke@zillar.com",
-      "password": "ndfadsf(d",
+      "password": "$2a$10$z07VvuXBvvrNlaNRWTMvqOQDYt4MdACEJFff43fSC4RSCaLFcjaYq",
       "phone": "+1 (971) 473-2320",
       "address": "110 Roosevelt Place, Salunga, South Carolina, 9434"
     },
@@ -78,7 +77,7 @@
       "guid": "584de54b-fa74-480d-90a4-b1b38cd02685",
       "isActive": true,
       "balance": "$1,778.30",
-      "picture": "http://placehold.it/32x32",
+      "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "age": 23,
       "eyeColor": "green",
       "name": {
@@ -87,7 +86,7 @@
       },
       "company": "WATERBABY",
       "email": "ruby.glenn@waterbaby.co.uk",
-      "password": "red^adl4",
+      "password": "$2a$10$z07VvuXBvvrNlaNRWTMvqOQDYt4MdACEJFff43fSC4RSCaLFcjaYq",
       "phone": "+1 (800) 433-3997",
       "address": "622 Fanchon Place, Kohatk, Marshall Islands, 8665"
     }

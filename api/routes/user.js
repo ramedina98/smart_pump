@@ -2,6 +2,7 @@
 import express from 'express'; 
 import jwt from 'jsonwebtoken'; 
 import dotnev from 'dotenv';
+import bcrypt from 'bcryptjs';
 
 dotnev.config();
 
@@ -29,24 +30,74 @@ const userRoutes = (db) => {
         }
     }; 
 
-    // route to get user details...
+    // route to the main...
     router.get('/', authenticate, async (req, res) => {
         await db.read(); 
         // finding the user based on user ID extracted from token...
         const user = db.data.users.find(u => u.id === req.user.userId);
-        res.render('pages/index', {user: user}); 
+        res.render('pages/index', {
+            name: user.name.first + ' ' + user.name.last, 
+            photo: user.picture,
+        }); 
     }); 
 
-    // route to update users details...
+    // route to update user details...
     router.put('/me', authenticate, async (req, res) => {
-        const { name, address } = req.body; 
-        await db.read(); 
-        // finding the user based on user ID extracted from token...
-        const user = db.data.users.find(u => u.id === req.user.userId); 
-        user.details = { name, address }; // updating user details...
-        await db.write(); // writting changes to db...
-        res.json(user); // sending update user details in response...
+        // Get all form fields submitted in the request
+        const { name, last, age, eyeColor, phone, email, address, company } = req.body;
+
+        try {
+            // read the db
+            await db.read();
+
+            // Find the user based on the user ID extracted from the token
+            const user = db.data.users.find(u => u.id === req.user.userId);
+
+            // Update user details with the values received from the form
+            user.name = name;
+            user.lastN = last;
+            user.age = age;
+            user.eyeColor = eyeColor;
+            user.phone = phone;
+            user.email = email;
+            user.address = address;
+            user.company = company;
+
+            // Write changes to the database
+            await db.write();
+
+            // Send a JSON response with the user's updated details
+            res.json({ message: 'Successful update' });
+
+        } catch (error) {
+            // Handle any errors that occur during the process.
+            res.status(500).json({ message: 'Internal server error' });
+        }
     }); 
+
+    // route to change the password...
+    router.put('/password', authenticate, async (req, res) => {
+        const { oldPassword, newPassword } = req.body;
+        await db.read();
+        // finding the user based on user ID extracted from token...
+        const user = db.data.users.find(u => u.id === req.user.userId);
+
+        // compare the old password with the stored hashed password...
+        const isMatch = await bcrypt.compare(oldPassword, user.password);
+
+        if (!isMatch) {
+            // if passwords don't match, return an error response...
+            return res.status(400).json({ message: 'Old password is incorrect' });
+        }
+
+        // hash the new password...
+        const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+
+        // update the user's password...
+        user.password = hashedNewPassword;
+        await db.write(); // writing changes to db...
+        res.json({ message: 'Password updated successfully' });
+    });
 
     // route to get user balance...
     router.get('/balance', authenticate, async (req, res) => {
@@ -54,10 +105,32 @@ const userRoutes = (db) => {
         // finding the user based on user ID extracted from token...
         const user = db.data.users.find(u => u.id === req.user.userId); 
         res.render('pages/balance', { 
-            user: user, 
+            name: user.name.first + ' ' + user.name.last, 
+            photo: user.picture,
             balance: user.balance 
         }); // sending user balance in response...
     });
+
+    // route to get user details...
+    router.get('/details', authenticate, async (req, res) => {
+        await db.read();
+        // finding the user based on user ID extracted from token...
+        const user = db.data.users.find(u => u.id === req.user.userId);
+        res.render('pages/details', {
+            name: user.name.first + ' ' + user.name.last, 
+            photo: user.picture,
+            user: {
+                name: user.name.first, 
+                lastN: user.name.last,
+                age: user.age, 
+                eyesColor: user.eyeColor, 
+                phone: user.phone, 
+                company: user.company, 
+                email:user.email, 
+                address: user.address
+            }
+        }); 
+    }); 
 
     return router; 
 }

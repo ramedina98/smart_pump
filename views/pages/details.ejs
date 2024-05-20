@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <!-- Todas estas son las meta etiquetas principales que debe de llebar una pagina web... -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Ricardo Abraham Medina Martin Del Campo y Ivan Careaga Panduro">
+    <meta name="description" content="Accede al sistema de inicio de sesión de Gym Torneos para comenzar a gestionar tus datos y participar en actividades deportivas.">
+    <meta name="keywords" content="Gym Torneos, inicio de sesión, gestión de datos, actividades deportivas, UNEDL, programación web, HTML5, CSS, JavaScript, PHP">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache_control" content="no-cache">
+    <!-- Here I have to writte an base tag -->
+    <title>Smart Pump - Login</title>
+    <!--icon-->
+    <link rel="icon" href="/assets/icon/icon.ico">
+    <!--css-->
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <!--JS-->
+    <script src="/js/app.js" defer></script>
+    <!--Fonts of google and icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!--This is the form that update the basic info-->
+    <div id="updateBasicInfo">
+        <form id="updateBasicInfoForm">
+            <div id="titleForm">
+                <span>Update Your Basic Information</span>
+            </div>
+            <div class="containers">
+                <div class="inputLabel">
+                    <label id="lblName" for="name">Name</label>
+                    <input name="name" id="name" type="text" placeholder="Add a name" value="<%- user.name%>">
+                </div>
+                <div class="inputLabel">
+                    <label id="lblLast" for="last">Last name</label>
+                    <input name="last" id="last" value="<%-user.lastN%>" type="text" placeholder="Add a last name">
+                </div>
+                <div class="inputLabel">
+                    <label id="lblAge" for="age">Age</label>
+                    <input name="age" id="age" value="<%-user.age%>" type="text" placeholder="Add you age">
+                </div>
+            </div>
+            <div class="containers">
+                <div class="inputLabel">
+                    <label id="lblEye" for="eye">Eye Color</label>
+                    <input name="eye" id="eye" type="text" placeholder="Add you eye color" value="<%- user.eyesColor%>">
+                </div>
+                <div class="inputLabel">
+                    <label id="lblPhone" for="phone">Phone</label>
+                    <input name="phone" id="phone" type="text" placeholder="Add your phone" value="<%- user.phone%>">
+                </div>
+                <div class="inputLabel">
+                    <label id="lblEmail" for="email">Email</label>
+                    <input name="email" id="email" value="<%-user.email%>" type="text" placeholder="Add an email">
+                </div>
+            </div>
+            <div class="containers2">
+                <div class="inputLabel">
+                    <label id="lblAddress" for="address">Address</label>
+                    <input name="address" id="address" value="<%-user.address%>" type="text" placeholder="Add your address">
+                </div>
+                <div class="inputLabel">
+                    <label id="lblCompany" for="company">Company</label>
+                    <input name="company" id="company" value="<%-user.company%>" type="text" placeholder="Add a company">
+                </div>
+            </div>
+            <div id="btn_contFBI">
+                <input id="update" type="submit" value="Update">
+                <button id="formBI_btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <!--this is the form that helps us to change the password--> 
+    <div id="changePassword">
+        <form id="changePasswordForm">
+            <div id="titleF">
+                <span>Change your password</span>
+            </div>
+            <div class="containers">
+                <div class="inputLabel">
+                    <label for="oldPass">Old password</label>
+                    <input name="oldPass" id="oldPass" type="password" required placeholder="Type the old password">
+                </div>
+                <div class="inputLabel">
+                    <label for="newPass">New Password</label>
+                    <input name="newPass" id="newPass" type="password" required placeholder="Type the new password">
+                </div>
+                <div class="inputLabel">
+                    <label id="confirmPassLabel" for="ConfirPass">Confirm new password</label>
+                    <input name="ConfirPass" id="ConfirPass" type="password" required placeholder="Confirm password">
+                </div>
+            </div>
+            <div id="iconToSeePass">
+                <button>
+                    <i class='bx bxs-bullseye'></i>
+                    See password
+                </button>
+            </div>
+            <div id="btn_contCP">
+                <input name="send" id="update2" type="submit" value="Update">
+                <button id="formCP_btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials/header'); %>
+    <main>
+        <!--this is the banner section-->
+        <%- include('../partials/banner'); %>
+        <!--main main part-->
+        <section id="myInfo">
+            <div id="myInformationCont">
+                <div class="infoCont">
+                    <div class="infoCont_divs">
+                        Name: <span><%- user.name%></span>
+                    </div>
+                    <div class="infoCont_divs">
+                        Last Name: <span><%- user.lastN%></span>
+                    </div>
+                    <div class="infoCont_divs">
+                        Age: <span><%- user.age%></span>
+                    </div>
+                </div>
+                <div class="infoCont">
+                    <div class="infoCont_divs">
+                        Eye color: <span><%- user.eyesColor%></span>
+                    </div>
+                    <div class="infoCont_divs">
+                        Company: <span><%- user.company%></span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="infoCont">
+                    <div class="infoCont_divs">
+                        Phone: <span><%- user.phone%></span>
+                    </div>
+                    <div class="infoCont_divs">
+                        Email: <span><%- user.email%></span>
+                    </div>
+                    <div class="infoCont_divs">
+                        Address: <span><%- user.address%></span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div id="myInformationCont_btn">
+                    <button id="updateInfo_btn">Update info</button>
+                    <button id="cp_btn">Change password</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer'); %>
+</body>
+</html>

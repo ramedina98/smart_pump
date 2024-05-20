@@ -25,6 +25,98 @@
     <main>
         <!--this is the banner section-->
         <%- include('../partials/banner'); %>
+        <section id="balanceSection">
+            <div id="balanceSection_first">
+                <div id="balanceSection_first_balance">
+                    <span>0032kl34</span>
+                    <span id="balance"><%- balance %></span>
+                    <span id="availableBalance">available balance</span>
+                    <button>View account and account number</button>
+                </div>
+                <div id="balanceSection_second">
+                    <span>
+                        <i class='bx bxs-folder-open'></i> With set-asides, save to 
+                        plan your finances.
+                    </span>
+                    <button>Create section</button>
+                </div>
+            </div>
+            <div id="navServices">
+                <ul>
+                    <li>
+                        <i class='bx bx-transfer'></i>
+                        transfer
+                    </li>
+                    <li>
+                        <i class='bx bx-purchase-tag-alt'></i>
+                        Pay for services or taxes
+                    </li>
+                    <li>
+                        <i class='bx bx-money-withdraw'></i>
+                        Cash withdrawal
+                    </li>
+                    <li>
+                        <i class='bx bx-plus-circle'></i>
+                        11 more
+                    </li>
+                </ul>
+            </div>
+            <div id="lastMovements">
+                <div id="lastMovements_title">
+                    <span>Last Movements</span>
+                </div>
+                <ul>
+                    <li class="movementsCont">
+                        <span class="date">May 17, 2024</span>
+                        <div class="bussinessAmount">
+                            <div class="bussiness">
+                                <span>Gass Sn J</span>
+                                <span>Smart Pump</span>
+                            </div>
+                            <div class="amount">
+                                <span>$-700.00</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="movementsCont">
+                        <span class="date">May 10, 2024</span>
+                        <div class="bussinessAmount">
+                            <div class="bussiness">
+                                <span>Liverpool</span>
+                                <span>Smart Pump</span>
+                            </div>
+                            <div class="amount">
+                                <span>$-1200.00</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="movementsCont">
+                        <span class="date">May 02, 2024</span>
+                        <div class="bussinessAmount">
+                            <div class="bussiness">
+                                <span>Seven eleven</span>
+                                <span>Smart Pump</span>
+                            </div>
+                            <div class="amount">
+                                <span>$-30.00</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="movementsCont">
+                        <span class="date">April 28, 2024</span>
+                        <div class="bussinessAmount">
+                            <div class="bussiness">
+                                <span>Cinemex</span>
+                                <span>Smart Pump</span>
+                            </div>
+                            <div class="amount">
+                                <span>$-328.00</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
     <%- include('../partials/footer'); %>
 </body>

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (res.ok) {
             localStorage.setItem('token', data.token);
             document.cookie = `token=${data.token}; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/`;
-            window.location.href = '/'; // Redirect to home page after successful login
+            window.location.href = '/user/'; // Redirect to home page after successful login
         } else {
             // we take the element alert...
             const alertElement = document.getElementById('alert');

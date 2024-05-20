@@ -1,6 +1,8 @@
 <header>
     <figure id="splogo_cont">
-        <img src="/assets/logo.png" alt="Smart Pump logo">
+        <a href="/user">
+            <img src="/assets/logo.png" alt="Smart Pump logo">
+        </a>
     </figure>
     <div id="menuBurger">
         <i class='bx bx-menu' id="bm"></i>
@@ -9,13 +11,13 @@
 
 <section id="dropDownMenu">
     <ul>
-        <li><span>Hello</span> <%- user.name.first %> <%- user.name.last %></li>
+        <li><span>Hello</span> <%- name%></li>
         <li onclick="logout()">Cerrar sesión</li>
         <li>
             <a href="/user/balance">Balance</a>
         </li>
         <li>
-            <a href="/user/me">Edit</a>
+            <a href="/user/details">Edit</a>
         </li>
     </ul>
 </section>

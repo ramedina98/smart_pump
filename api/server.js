@@ -42,8 +42,21 @@ app.use('/user', userRoutes);
 // logout
 app.use('/auth', logoutRoute);
 
+// Middleware for automatic redirection
+app.use((req, res, next) => {
+    const token = req.cookies.token;
+    if (!token && req.originalUrl !== '/') {
+        // If there is no token and the route is not '/', redirect to '/'
+        return res.redirect('/');
+    } else if (token && req.originalUrl === '/') {
+        // If there is a token and the route is '/', redirect to '/user/'
+        return res.redirect('/user/');
+    }
+    next();
+});
+
 //default routes if not yet logged in
-app.get('/login', (_req, res) => {
+app.get('/', (_req, res) => {
     res.render('pages/login');
 })
 
@@ -57,28 +70,3 @@ initDB().then(() => {
     // handle any error that occur during db initialization...
     console.log('Filed to initialize database', error); 
 });
-
-// Middleware for automatic redirection
-app.use((req, res, next) => {
-    const token = req.cookies.token;
-    if (!token) { // If there is no token and the route is not '/login'
-        return res.redirect('/login'); // Redirect to '/login'
-    } else if (token) { // If there is a token and the route is '/login'
-        return res.redirect('/user/'); // Redirect to '/user'
-    }
-    next();
-});
-
-// TODO: borrar cuando sea necesario...
-/*import bcrypt from 'bcryptjs';
-
-const password = 'may2024'; // Contraseña que quieres cifrar
-
-// Generar el hash de la contraseña
-bcrypt.hash(password, 10, (err, hash) => {
-    if (err) {
-        console.error('Error al generar el hash:', err);
-    } else {
-        console.log('Contraseña cifrada:', hash);
-    }
-}); */
